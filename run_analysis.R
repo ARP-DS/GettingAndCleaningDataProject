@@ -1,31 +1,27 @@
 # load dplyr
 library(dplyr)
 
-# download file
-fileurl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-download.file(filerurl,destfile = "inidata.zip")
-
 # read test data and join all into a table
-xtest <- read.table(unzip("inidata.zip","UCI HAR Dataset/test/X_test.txt"))
-ytest <- read.table(unzip("inidata.zip","UCI HAR Dataset/test/y_test.txt"))
+xtest <- read.table(unzip("getdata%2Fprojectfiles%2FUCI HAR Dataset.zip","UCI HAR Dataset/test/X_test.txt"))
+ytest <- read.table(unzip("getdata%2Fprojectfiles%2FUCI HAR Dataset.zip","UCI HAR Dataset/test/y_test.txt"))
 names(ytest)<-"activity"
-stest <- read.table(unzip("inidata.zip","UCI HAR Dataset/test/subject_test.txt"))
+stest <- read.table(unzip("getdata%2Fprojectfiles%2FUCI HAR Dataset.zip","UCI HAR Dataset/test/subject_test.txt"))
 names(stest) <- "subject"
 test <- cbind(stest,ytest,xtest)
 test <- tbl_df(test)
 
 # read train and join all into a table
-xtrain <- read.table(unzip("inidata.zip","UCI HAR Dataset/train/X_train.txt"))
-ytrain <- read.table(unzip("inidata.zip","UCI HAR Dataset/train/y_train.txt"))
+xtrain <- read.table(unzip("getdata%2Fprojectfiles%2FUCI HAR Dataset.zip","UCI HAR Dataset/train/X_train.txt"))
+ytrain <- read.table(unzip("getdata%2Fprojectfiles%2FUCI HAR Dataset.zip","UCI HAR Dataset/train/y_train.txt"))
 names(ytrain)<-"activity"
-strain <- read.table(unzip("inidata.zip","UCI HAR Dataset/train/subject_train.txt"))
+strain <- read.table(unzip("getdata%2Fprojectfiles%2FUCI HAR Dataset.zip","UCI HAR Dataset/train/subject_train.txt"))
 names(strain) <- "subject"
 train <- cbind(strain,ytrain,xtrain)
 train <- tbl_df(train)
 
 # read labels and features
-labels <- read.table(unzip("inidata.zip","UCI HAR Dataset/activity_labels.txt"))
-features <- read.table(unzip("inidata.zip","UCI HAR Dataset/features.txt"))
+labels <- read.table(unzip("getdata%2Fprojectfiles%2FUCI HAR Dataset.zip","UCI HAR Dataset/activity_labels.txt"))
+features <- read.table(unzip("getdata%2Fprojectfiles%2FUCI HAR Dataset.zip","UCI HAR Dataset/features.txt"))
 
 # test+train
 t1 <- rbind(test,train)

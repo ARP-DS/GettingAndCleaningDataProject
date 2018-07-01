@@ -1,6 +1,11 @@
-The data analysis of one script called run_analysis.R. The content of the script is:
+Data analysis of data placed in: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+Data file named: "getdata%2Fprojectfiles%2FUCI HAR Dataset.zip"  should be placed in the working directory.
+
+All steps placed in scrip: run_analysis.R
+
+The script consist on:
 - Load library dplyr
-- Download file from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 - Read file, using read.table function, and using unzip function, into data frames.
 - Define table as data table to be able to use dplyr functions
 - Merge test and train data into a data set using rbind function
